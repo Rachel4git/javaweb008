@@ -1,4 +1,4 @@
-<%--
+<%@ page import="org.apache.http.protocol.HTTP" %><%--
   Created by IntelliJ IDEA.
   User: hd48552
   Date: 2018/5/21
@@ -46,28 +46,81 @@
     <br>
     change password :\${param[pass.word]}原样输出
     <br>
-
+-------------------------------------------------------
+<br>
 <%--EL隐藏变量--%>
 
 <%--pagescope--%>
-
-<%--requestscope--%>
-<%--sessionscope--%>
-<%--applicationscope--%>
-<%--param--%>
-param:
+<%--?????????????????????????????????--%>
+<%
+%>
+pageScope:${pageScope.p}
 <br>
---
+<%--requestscope--%>
+<%
+    request.setAttribute("req","i am a request");
+%>
+requestScope:${requestScope.req}
+<br>
+<%
+    response.getWriter().println("getReq : " + request.getAttribute("req"));
+%>
+<br>
+<%--sessionscope--%>
+<%
+    HttpSession ses = request.getSession();
+    ses.setAttribute("sess","i am a session");
+%>
+sessionScope:${sessionScope.sess}
+<br>
+<%
+    response.getWriter().println("getSess : " +session.getAttribute("sess"));
+%>
+<br>
+<%--applicationscope--%>
+<%
+    application.setAttribute("app","i am a app");
+%>
+applicationScope:${applicationScope.app}
+<br>
+<%
+    response.getWriter().println("getSess : " +application.getAttribute("app"));
+%>
+-------------------------------------------------
+<br>
+<%--param--%>
+param : ${param.username}
+<br>
+<%
+    response.getWriter().println("getParam : " +request.getParameter("username"));
+%>
 <br>
 
 <%--paramvalues--%>
-<%--paramValues0:${paramValues[0].class.name}--%>
-<%--paramValues1:${paramValues[1]}--%>
+<%--/El1.jsp?username=hd48552&pass.word=1223&submit=%26%2325552%3B%26%2320132%3B&username=ccc&username=ddd--%>
+paramValues:
+<br>
+paramValues0:${paramValues.username[0]}
+<br>
+paramValues1:${paramValues.username[1]}
+<br>
+paramValues1:${paramValues.username[2]}
+<br>
+---------------------------------------------------------
+<br>
 <%--cookie--%>
 cookie:
 <br>
 JSESSIONID name :${cookie.JSESSIONID.name}
 <br>
+<%
+    Cookie[] cookies =request.getCookies();
+    for(Cookie c: cookies){
+        response.getWriter().println("getCookieName : " +c.getName() );
+        response.getWriter().println("getCookieValue : " +c.getValue() );
+    }
+
+%>
 JSESSIONID value:${cookie.JSESSIONID.value}
 <br>
 <%--header--%>
@@ -75,23 +128,38 @@ header:
 <br>
 Accept-Language: ${header["Accept-Language"] }
 <br>
-<%--headervalues--%>
-<%--headerValues0: ${headerValues.[0]};--%>
-<%--headerValues1: ${headerValues.[1]};--%>
+<%
+    response.getWriter().println("getHeader : " +request.getHeader("Accept-Language"));
+%>
 
+<%--headervalues--%>
+<%-- {referer=[Ljava.lang.String;@2d631a81, accept-language=[Ljava.lang.String;@58edf8be, cookie=[Ljava.lang.String;@48ebebd5, host=[Ljava.lang.String;@5fac5c97, upgrade-insecure-requests=[Ljava.lang.String;@6aaef2f1, connection=[Ljava.lang.String;@5d31cf12, accept-encoding=[Ljava.lang.String;@4a933222, user-agent=[Ljava.lang.String;@77e69703, accept=[Ljava.lang.String;@6a42da74};--%>
+headerValues0: ${headerValues};
+<br>
+headerValues1: ${headerValues};
+<br>
 <%--initparam--%>
+
 initParam:
 <br>
-initParam1:${initParam.el-initParam1}
+initParam1:${initParam.initParam1}
 <br>
-initParam2:${initParam.el-initParam2}
+<%
+//    response.getWriter().println("getInitParam : " );
+
+%>
+initParam2:${initParam.initParam2}
 <br>
 <%--pagecontext--%>
+<%--?????????????????????????////--%>
 pagecontext:
 <br>
 contextpath:${pageContext.request.contextPath}
 <br>
 sessionId:${pageContext.session.id}
 <br>
+<%
+
+%>
 </body>
 </html>

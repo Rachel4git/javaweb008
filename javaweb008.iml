@@ -82,5 +82,9 @@
     <orderEntry type="library" name="Maven: org.netbeans.api:org-openide-util-lookup:RELEASE72" level="project" />
     <orderEntry type="library" name="Maven: eu.limetri.api:model:0.2" level="project" />
     <orderEntry type="library" name="Maven: javax.el:el-api:2.2.1-b04" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:jsp-api:2.0.public_draft" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.4" level="project" />
+    <orderEntry type="library" name="Maven: taglibs:standard:1.1.2" level="project" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
   </component>
 </module>
