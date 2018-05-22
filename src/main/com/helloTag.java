@@ -16,6 +16,11 @@ import javax.servlet.jsp.tagext.SimpleTag;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 public class helloTag implements SimpleTag{
 
+    /**
+     * 自定义标签
+     * 创建一个标签处理类，实现simpleTag接口，重写其中的抽象方法；或继承simpleTagSurpport类，重写doTag方法
+     *
+     */
     private  String value;
     private  String count;
     private PageContext pageContext;

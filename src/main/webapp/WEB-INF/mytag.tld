@@ -5,6 +5,11 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
         version="2.1">
 
+    <!--
+    ????????? .tld??
+    ??short-name(@taglib??prefix)?uri?@taglib??uri?
+    ?????name?????????tag-class??????tag-content,????attribute
+    -->
     <tlib-version>1.0</tlib-version>
     <short-name>atrachel</short-name>
     <uri>http://www.atrachel.com/mytag</uri>
@@ -25,6 +30,30 @@
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
+    </tag>
+
+    <tag>
+        <name>simpleTag</name>
+        <tag-class>main.com.simpleTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>num1</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>num2</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>contentTag</name>
+        <tag-class>main.com.contentTag</tag-class>
+        <body-content>scriptless</body-content>
+
     </tag>
 
 </taglib>

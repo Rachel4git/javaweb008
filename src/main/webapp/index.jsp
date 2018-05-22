@@ -7,5 +7,7 @@
 
 </form>
 <a href="helloTag1.jsp">to helloTag</a>
+<a href="simpleTag1.jsp?username=rachel&password=1111">to simpleTag</a>
+<a href="contenTag1.jsp?username=rachel&pass.word=1111">to contentTag</a>
 </body>
 </html>
