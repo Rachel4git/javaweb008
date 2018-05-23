@@ -56,4 +56,19 @@
 
     </tag>
 
+    <tag>
+        <name>parentTag</name>
+        <tag-class>main.com.parentTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>sonTag</name>
+        <tag-class>main.com.sonTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
 </taglib>
