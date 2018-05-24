@@ -66,6 +66,7 @@
           <element id="library" level="project" name="Maven: eu.limetri.api:model:0.2" />
           <element id="library" level="project" name="Maven: javax.el:el-api:2.2.1-b04" />
           <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">
