@@ -24,13 +24,13 @@ public class Zone {
     public void setZone_name(String zoneName) {
         this.zone_name = zoneName;
     }
-    public String getZoneName() {
+    public String getZone_name() {
         return zone_name;
     }
     public void setZone_area(String zoneArea) {
         this.zone_area = zoneArea;
     }
-    public String getZoneArea() {
+    public String getZone_area() {
         return zone_area;
     }
 

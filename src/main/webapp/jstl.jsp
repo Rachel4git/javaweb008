@@ -1,4 +1,8 @@
-<%@ page import="main.com.Zone" %><%--
+<%@ page import="main.com.Zone" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %><%--
   Created by IntelliJ IDEA.
   User: hd48552
   Date: 2018/5/24
@@ -84,7 +88,8 @@ isAdault:<c:out value="${requestScope.isAdault}"></c:out>
 <%--c:choose--%>
 --------------------------c:choose  c:when  c:otherwise------------------------------
 <br>
-<%--c:choose是c:when和c:otherwise的父标签，c:when和c:otherwise不能脱离c:choose存在--%>
+<%--c:choose是c:when和c:otherwise的父标签，c:when和c:otherwise不能脱离c:choose存在
+c:otherwise必须在c:when之后--%>
 <c:choose>
     <c:when test="${param.age>60}">老年人</c:when>
     <c:when test="${param.age>35}">中年人</c:when>
@@ -94,12 +99,92 @@ isAdault:<c:out value="${requestScope.isAdault}"></c:out>
 </c:choose>
 <br>
 
-
-
-
-
 <%--迭代操作--%>
-<%--URL操作--%>
+<%--forEach--%>
+--------------------------forEach------------------------------
+<br>
 
+<c:forEach begin="1" end="10" step="3" var="i">
+    ${i}
+</c:forEach>
+<br>
+<%--对集合进行遍历--%>
+<%
+    List<Zone> zl = new ArrayList();
+    zl.add(new Zone(1,"aaa","bbb"));
+    zl.add(new Zone(2,"ccc","ddd"));
+    zl.add(new Zone(3,"eee","fff"));
+    zl.add(new Zone(4,"ggg","hhh"));
+    zl.add(new Zone(5,"kkk","lll"));
+    request.setAttribute("zone",zl);
+
+%>
+
+ <%--${requestScope.zone}--%>
+<c:forEach items="${requestScope.zone}" var="zone" varStatus="status" begin="2" end="4">
+
+    ${status.index}--${status.count}--${status.first}--${status.last}
+    <br>
+    ${zone.id}
+    --
+    ${zone.zone_name}
+    --
+    ${zone.zone_area}
+    <br>
+</c:forEach>
+<br>
+----------------------------------------
+<br>
+<%--对MAP进行遍历--%>
+
+<%
+    Map<String,Zone> zm = new HashMap();
+    zm.put("zone1",new Zone(1,"aa","bb"));
+    zm.put("zone2",new Zone(2,"aa","bb"));
+    zm.put("zone3",new Zone(3,"aa","bb"));
+    request.setAttribute("zoneMap",zm);
+%>
+
+<c:forEach items="${requestScope.zoneMap}" var="zone">
+    ${zone.key}---${zone.value.id}--${zone.value.zone_name}
+    <br>
+</c:forEach>
+<%--forToken--%>
+--------------------------forToken------------------------------
+<%--对字符串进行处理，相当于string中的split--%>
+<br>
+<c:set var="ss" value="a.b.cdfd,dsf.aroewu,eree,ccc" scope="request"></c:set>
+<c:forTokens items="${requestScope.ss}" delims="." var="splitss">
+    ${splitss}
+    <br>
+</c:forTokens>
+<br>
+<c:forTokens items="${requestScope.ss}" delims="," var="splitss">
+    ${splitss}
+    <br>
+</c:forTokens>
+
+
+
+<%--URL操作--%>
+<%--c:import--%>
+<%--包含任何页面到当前页面--%>
+<c:import url="http://www.baidu.com"></c:import>
+<br>
+-------------------------
+<br>
+<%--c:redirect--%>
+<%--重定向到指定页面--%>
+<%--<c:redirect url="http://www.baidu.com"></c:redirect>--%>
+
+<%--c:url--%>
+<br>
+---------------------------------------
+<br>
+<c:url value="/testJSTLURL.jsp" var="testJSTLURL" scope="request">
+    <c:param name="rachel" value="11111"></c:param>
+</c:url>
+<br>
+url:${requestScope.testJSTLURL}
 </body>
 </html>
